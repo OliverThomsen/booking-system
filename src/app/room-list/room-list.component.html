@@ -1,17 +1,13 @@
-<p>
-  room-list works!
-</p>
-
-
 <select class="selectpicker" [(ngModel)]="currentBuilding">
   <option *ngFor="let building of buildings" [ngValue]="building">{{building.name}}</option>
 </select>
 
 <input type="date" [value]="date | date:'yyyy-MM-dd'" (input)="date = $event.target.valueAsDate">
-<div>{{date}}</div>
 
-<div class="container room-list">
-  <div class="row">
-    <app-room-thumbnail *ngFor="let room of currentBuilding.rooms" [room]="room" [date]="date"></app-room-thumbnail>
+
+<div class="row">
+  <div class="col-12 col-sm-12 col-md-3" *ngFor="let room of currentBuilding.rooms">
+    <app-room-thumbnail [room]="room" [date]="date"></app-room-thumbnail>
   </div>
 </div>
+
